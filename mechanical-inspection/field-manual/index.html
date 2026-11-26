@@ -154,134 +154,337 @@ body{font-size:1rem;line-height:1.65;font-synthesis:none}
 .cover-figure figcaption{background:#f1f5ef}
 .cover-actions button:hover{background:#edf4e9}
 @media print{body{font-size:10.5pt;line-height:1.49}.hero.hero-cover h1{font-size:27pt}}
+.skip-link{position:absolute;top:8px;left:8px;z-index:4;transform:translateY(-200%);padding:9px 14px;background:var(--paper)}
+.skip-link:focus{transform:none}
+body{font-size:1.0625rem;line-height:1.73}
+.shell{grid-template-columns:210px minmax(0,1fr);gap:24px}
+.shell nav{max-height:calc(100dvh - 40px);overflow:auto}
+nav strong{font-size:.83rem}nav a{font-size:.89rem;line-height:1.45;min-height:42px}
+.nav-topics{display:grid}.nav-topics + strong{margin-top:12px}
+.hero.hero-cover p{font-size:inherit;line-height:1.6}
+.hero.hero-cover h1{font-size:clamp(2.1rem,4.2vw,3.75rem);letter-spacing:-.05em}
+.cover-actions a,.cover-actions button{display:inline-flex;align-items:center;min-height:44px;padding:7px 14px;font-size:.9rem}
+.panel{padding:clamp(19px,3vw,33px)}
+.panel h2{line-height:1.3;margin-bottom:12px}
+.panel h3{font-size:1.14rem;line-height:1.4}
+.simple-lead{font-size:1.06rem;color:var(--ink);max-width:52ch}
+.quick-steps,.tip-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:16px 0;padding:0}
+.quick-steps{list-style:none;counter-reset:step}
+.quick-steps li,.tip-grid article{margin:0;padding:14px 15px;background:#f2f7ef;border:1px solid var(--line);border-radius:10px}
+.quick-steps li{counter-increment:step;display:grid;grid-template-columns:30px minmax(0,1fr);column-gap:10px;align-content:start}
+.quick-steps li::before{content:counter(step);grid-row:1 / 3;display:grid;place-items:center;align-self:start;width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;font-size:.9rem;font-weight:800}
+.quick-steps a{font-weight:800;text-underline-offset:4px}
+.quick-steps p,.tip-grid p{margin:3px 0 0;font-size:1rem}
+.tip-grid h3{margin:0 0 5px}
+.callout{padding:12px 15px}
+.callout.warn{color:#57340d}
+.simple-words span,.grid article p{font-size:1rem}
+.plain-steps li,.easy-handoff-grid li{margin-bottom:10px}
+.guided-photos{gap:12px}
+.guided-photos figcaption,.pc-guide figcaption,.evidence figcaption{font-size:.955rem;line-height:1.55;color:var(--ink)}
+.guided-photos figcaption b{font-size:1.03rem;line-height:1.35;margin-bottom:8px}
+.guided-photos figcaption dl{margin:0}
+.guided-photos figcaption dl>div{display:grid;grid-template-columns:4.1em minmax(0,1fr);gap:4px;margin-bottom:5px}
+.guided-photos figcaption dt{font-weight:750;color:var(--green)}
+.guided-photos figcaption dd{margin:0}
+.guided-photos figcaption small{font-size:.77rem}
+.guided-photos img{background:#ecf1eb}
+.template-card{background:#f3f6f1;border:1px solid var(--line);border-radius:10px;padding:12px 15px;margin:14px 0}
+.template-card dl{margin:5px 0 0}
+.template-card dl>div{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:6px;padding:3px 0}
+.template-card dt{font-weight:750}.template-card dd{margin:0}
+.formula{padding:12px 15px;background:#f2f7ef;border-radius:8px;font-weight:750}
+.number-flow span{font-size:.95rem}
+table{font-size:.95rem;line-height:1.55}
+.tablebox[tabindex]{scrollbar-width:auto}
+.table-note,.section-label{font-size:.9rem;color:var(--muted)}
+.section-label{margin-top:14px}
+.checklist label{min-height:44px;padding:8px 6px;gap:10px}.checklist input{margin-top:5px;min-width:19px;min-height:19px}
+summary{padding:4px 0}
+@media(max-width:1050px){.shell{grid-template-columns:177px minmax(0,1fr);gap:15px}}
+@media(max-width:740px){
+ .shell nav{display:block;max-height:none;padding:8px;margin-bottom:12px}
+ .shell nav strong{display:block;padding:2px 6px}.shell nav a{white-space:normal;padding:8px 6px}
+ .nav-topics{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .nav-detail{display:none}
+ .hero.hero-cover{grid-template-columns:1fr;padding:17px}.hero.hero-cover h1{font-size:clamp(1.9rem,6.9vw,2.9rem)}
+ .cover-figure img{height:190px}
+ .panel{padding:16px}.guided-photos img{height:220px}
+}
+@media(max-width:500px){
+ .quick-steps,.tip-grid{grid-template-columns:1fr}
+ .template-card dl>div{grid-template-columns:1fr;gap:0}
+ .number-flow{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media print{
+ .shell,.nav-topics{display:block}.skip-link{display:none}
+ .hero.hero-cover h1{font-size:26pt}.hero.hero-cover p,.simple-lead{font-size:10.5pt}
+ .panel{padding:0}.panel h3{font-size:12pt}
+ .quick-steps li,.tip-grid article,.template-card{break-inside:avoid}
+ .quick-steps p,.tip-grid p,.guided-photos figcaption,.pc-guide figcaption,.evidence figcaption,.simple-words span,.grid article p{font-size:9.5pt}
+ .guided-photos figcaption dl>div{display:block}.guided-photos figcaption dt,.guided-photos figcaption dd{display:inline}
+ table{font-size:9pt}
+}
+
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main-title">본문으로 건너뛰기</a>
 <div class="shell">
 <nav aria-label="업무 매뉴얼 목차">
-<strong>처음 시작</strong><a href="#basics">쉬운 말로 시작</a><a href="#walkthrough">설비 기록 예시</a><a href="#atlas">사진으로 배우기</a><a href="#examples">기록과 계산 연습</a><a href="#easy-handoff">휴대폰과 PC</a><strong>자세한 업무 순서</strong>
-<a href="#start"><span>01</span>착수와 역할</a><a href="#scope"><span>02</span>대상과 수량</a><a href="#field"><span>03</span>측정과 촬영</a><a href="#findings"><span>04</span>판정과 개선사항</a><a href="#dates"><span>05</span>회차 날짜 갱신</a><a href="#report"><span>06</span>보고서 작성과 이관</a><a href="#release"><span>07</span>납품 전 검토</a><a href="#sources"><span>08</span>원본 근거</a>
+  <strong>처음 보는 분</strong>
+  <div class="nav-topics">
+    <a href="#basics">처음에 할 일</a>
+    <a href="#walkthrough">장비 사진 찍기</a>
+    <a href="#atlas">사진으로 확인하기</a>
+    <a href="#examples">이상 상태 적기</a>
+    <a href="#easy-handoff">한글 보고서 만들기</a>
+    <a href="#release">제출 전 체크</a>
+  </div>
+  <div class="nav-detail">
+  <strong>담당자용 상세 절차</strong>
+  <a href="#start"><span>01</span>준비와 역할</a><a href="#scope"><span>02</span>대상과 수량</a><a href="#field"><span>03</span>측정과 촬영</a><a href="#findings"><span>04</span>판정과 개선사항</a><a href="#dates"><span>05</span>날짜 확인</a><a href="#report"><span>06</span>보고서와 파일</a><a href="#release"><span>07</span>제출 전 확인</a><a href="#sources"><span>08</span>참고 자료</a>
+  </div>
 </nav>
 <main>
 <section class="hero hero-cover" aria-labelledby="main-title">
-<div class="cover-copy">
-<img class="cover-brand" alt="NAIN 주식회사 나인" src="photos/nain-logo.png">
-<div class="date">현장 사진으로 배우는 업무용 매뉴얼 · 2026.11.26</div>
-<h1 id="main-title">기계설비 성능점검<br>업무 매뉴얼</h1>
-<p>장비를 처음 봐도 따라갈 수 있게, 실제 사진으로 <strong>무엇을 보고, 어디를 찍고, 어떻게 적는지</strong>부터 설명합니다.</p>
-<div class="cover-actions ui-only"><button type="button" id="print">인쇄 / PDF 저장</button></div>
-</div>
-<figure class="cover-figure"><img alt="신평리가아파트 기계실의 팽창탱크와 연결 배관" src="photos/expansion-tank.jpg"><figcaption><b>현장 점검 사진 · 팽창탱크</b>신평리가아파트 성능점검 보고서 17쪽의 현장 사진</figcaption></figure>
+  <div class="cover-copy">
+    <img class="cover-brand" alt="NAIN 주식회사 나인" src="photos/nain-logo.png">
+    <p class="date">현장 사진으로 배우는 업무 매뉴얼 · 2026.11.26</p>
+    <h1 id="main-title" tabindex="-1">기계설비 성능점검<br>업무 매뉴얼</h1>
+    <p>처음 현장에 가나요? <strong>장비 번호를 찾고, 사진을 찍고, 본 그대로 적는 것</strong>부터 시작해 보세요.</p>
+    <div class="cover-actions ui-only"><a href="#basics">처음 하는 분은 여기부터</a><button type="button" id="print">인쇄 / PDF 저장</button></div>
+  </div>
+  <figure class="cover-figure">
+    <img src="photos/expansion-tank.jpg" alt="기계실의 팽창탱크와 옆에 연결된 배관">
+    <figcaption><b>실제 현장 사진 · 팽창탱크</b>탱크와 연결 배관, 바닥에 닿는 받침이 보입니다. 사진을 누르면 커집니다.</figcaption>
+  </figure>
 </section>
 
-
-
 <section class="panel beginner" id="basics">
-<h2>처음이면 여기부터 읽으세요</h2>
-<p class="simple-lead">기계설비 성능점검은 <strong>건물에서 물과 공기를 움직이거나 온도를 조절하는 장비가 어떻게 일하는지 확인하고, 그 증거를 기록하는 일</strong>입니다.</p>
-<ol class="easy-flow">
-<li><b>어느 장비인지 찾기</b><span>설비ID와 위치를 확인합니다.</span></li>
-<li><b>무엇을 봤는지 남기기</b><span>사진, 본 상태, 잰 값을 기록합니다.</span></li>
-<li><b>어떤 기준으로 봤는지 대조하기</b><span>해당 설비의 점검표와 기준을 확인합니다.</span></li>
-<li><b>결과와 다음 할 일을 적기</b><span>판정과 조치 의견을 각각 적습니다.</span></li>
-</ol>
-<div class="callout"><strong>처음 맡기 좋은 일</strong><p>담당자와 설비 이름·번호를 맞춰 보고, 사진 번호와 위치를 기록합니다. 운전 중 장비에 손을 대거나 덮개를 열고 측정하는 일은 현장 절차에 따라 담당자가 수행합니다.</p></div>
-<h3>보고서 단어를 쉬운 말로</h3>
-<div class="simple-words">
-<div><b>설비</b><span>건물에서 물이나 공기를 보내거나, 온도를 조절하는 장비.</span></div>
-<div><b>설비ID</b><span>장비 하나를 구별하는 번호. 같은 펌프가 여러 대라도 번호가 각각 있습니다.</span></div>
-<div><b>명판</b><span>장비에 붙은 정보표. 제조사나 모델, 용량 등 장비를 구별할 정보를 찾을 수 있습니다.</span></div>
-<div><b>항목</b><span>한 번에 확인할 내용 하나. 예를 들면 ‘흔들림’이나 ‘받침 상태’입니다.</span></div>
-<div><b>실측값과 단위</b><span>기기로 직접 잰 숫자와 숫자가 무엇인지 알려주는 표시. 예를 들어 온도 기록에는 °C를 함께 적습니다.</span></div>
-<div><b>기준과 판정</b><span>기준은 무엇과 비교할지 정해 놓은 조건이고, 판정은 그 근거를 확인한 뒤 내린 결과입니다.</span></div>
-<div><b>판정보류</b><span>점검했지만 자료를 더 확인해야 결과를 정할 수 있는 상태입니다.</span></div>
-<div><b>조치 의견</b><span>확인한 문제에 대해 무엇을 점검·보수하고, 이후 무엇을 다시 확인할지 적은 내용입니다.</span></div>
-</div>
+  <h2>처음이면 이 순서로 하세요</h2>
+  <p class="simple-lead">성능점검은 건물의 장비가 제대로 일하는지 확인하고, 그 결과를 기록하는 일입니다. 처음에는 담당자와 함께 아래 순서로 진행하세요.</p>
+  <ol class="quick-steps">
+    <li><a href="#start">오늘 볼 장비를 찾으세요</a><p>담당자와 점검 목록을 엽니다. 장비 번호와 있는 곳을 맞춰 봅니다.</p></li>
+    <li><a href="#walkthrough">사진을 찍으세요</a><p>장비 전체, 이름표, 확인할 부분을 찍습니다.</p></li>
+    <li><a href="#examples">본 것을 적으세요</a><p>어디에서 무엇을 봤는지 씁니다. 잰 숫자가 있으면 단위도 적습니다.</p></li>
+    <li><a href="#easy-handoff">담당자와 보고서를 확인하세요</a><p>사진과 기록을 옮깁니다. 결과와 날짜를 확인한 뒤 제출합니다.</p></li>
+  </ol>
+  <div class="callout warn"><strong>현장에서는 안전부터 확인하세요</strong><p>담당자가 허락한 곳에서 사진을 찍으세요. 작동 중인 장비에는 손을 대지 마세요. 덮개를 열거나 기기로 재는 일은 담당자에게 맡기세요. 위험해 보이는 곳을 발견하면 가까이 가지 말고 현장 책임자에게 바로 알리세요.</p></div>
+  <details>
+    <summary>처음 듣는 단어를 쉬운 말로 보기</summary>
+    <div class="simple-words">
+      <div><b>설비</b><span>물이나 공기를 보내거나 온도를 바꾸는 장비입니다.</span></div>
+      <div><b>설비ID</b><span>장비 하나를 구별하는 번호입니다. 같은 모양의 펌프라도 번호는 다릅니다.</span></div>
+      <div><b>명판</b><span>장비에 붙은 이름표입니다. 회사 이름, 모델, 용량을 찾을 수 있습니다.</span></div>
+      <div><b>점검 항목</b><span>확인할 내용 하나입니다. 예를 들면 ‘물 샘’이나 ‘받침 상태’입니다.</span></div>
+      <div><b>실측값과 단위</b><span>직접 잰 숫자와 그 숫자의 뜻을 나타내는 표시입니다. 온도는 숫자와 °C를 함께 적습니다.</span></div>
+      <div><b>판정</b><span>기준과 비교해 정한 결과입니다. 예를 들면 ‘적합’과 ‘부적합’입니다.</span></div>
+      <div><b>판정보류</b><span>점검은 했고, 결과를 정하기 전에 자료나 기준을 더 확인해야 한다는 뜻입니다.</span></div>
+      <div><b>조치 의견</b><span>무엇을 확인하거나 고치고, 나중에 무엇을 다시 볼지 적는 내용입니다.</span></div>
+    </div>
+  </details>
 </section>
 
 <section class="panel beginner" id="walkthrough">
-<h2>팽창탱크 점검 기록 예시</h2>
-<p class="simple-lead">팽창탱크는 물의 온도가 바뀔 때 생기는 부피 변화를 받아 주는 장비입니다. 아래 사진은 신평리가아파트 완료본에 실린 실제 기록입니다.</p>
-<div class="guided-photos">
-<figure><img alt="팽창탱크 전체와 연결 배관" loading="lazy" src="photos/expansion-tank.jpg"><figcaption><b>① 장비 전체</b><span>탱크, 옆 배관, 설치된 자리가 같이 보입니다. 위치를 따로 기록하면 같은 모양의 탱크를 구별하기 쉽습니다.</span><small>신평리가아파트 PDF 17쪽</small></figcaption></figure>
-<figure><img alt="제조사와 모델이 적힌 팽창탱크 명판" loading="lazy" src="photos/expansion-tank-nameplate.jpg"><figcaption><b>② 명판</b><span>가까이 찍어 글씨를 읽을 수 있게 합니다. 회사가 부여한 설비ID와 명판의 모델번호는 각각 적습니다.</span><small>신평리가아파트 PDF 17쪽</small></figcaption></figure>
-<figure><img alt="팽창탱크 밑의 받침과 바닥 고정부" loading="lazy" src="photos/expansion-tank-support.jpg"><figcaption><b>③ 확인할 부분</b><span>탱크 아래 받침과 바닥에 고정된 곳을 봅니다. 사진으로 확인할 수 있는 상태를 적고, 고정 상태의 추가 확인이 필요하면 표시합니다.</span><small>신평리가아파트 PDF 17쪽</small></figcaption></figure>
-</div>
-<ol class="plain-steps">
-<li><b>번호를 맞춥니다.</b> 대장에서 설비ID와 실제 설치 위치를 확인합니다. 열화상이나 지지대 확인이 이번 점검 대상 항목인지 담당자와 확인합니다.</li>
-<li><b>앱에서 같은 장비를 고릅니다.</b> <b>회차 열기 → 항목별 빠른 촬영 → 설비 선택</b> 순으로 들어갑니다. 처음 보는 설비는 설비대장에 등록합니다.</li>
-<li><b>항목 버튼을 누릅니다.</b> <b>지지대 상태확인</b>을 누른 뒤 촬영을 확정하면 사진이 그 장비와 항목에 붙습니다. 목록에 없는 항목은 <b>직접 항목 추가</b>를 누릅니다.</li>
-<li><b>사진에 없는 내용을 글로 남깁니다.</b> 위치, 본 상태, 실제 잰 곳·값·단위·조건을 기록에서 추가합니다. 값이 없으면 확인 필요를 남깁니다.</li>
-<li><b>담당자와 결과를 확인합니다.</b> 사진이 해당 장비와 연결됐는지 보고, 기준과 비교해 판정 및 다음 조치를 결정합니다.</li>
-</ol>
-<div class="callout"><strong>이렇게 적으면 다음 사람이 읽을 수 있습니다 · 연습용 기록</strong><p><b>설비ID / 위치:</b> PT-01 / 지하 1층 기계실<br><b>항목 / 본 사실:</b> 지지대 상태확인 / 받침과 고정부가 보이도록 촬영함<br><b>사진 / 결과:</b> R-001-01 / 고정 상태는 담당자 추가 확인</p><p>PT-01과 R-001-01은 입력을 보여 주기 위한 예시 번호입니다.</p></div>
+  <h2>장비 사진은 이렇게 남기세요</h2>
+  <p class="simple-lead">한 장비의 사진 세 장을 예로 볼게요. 사진을 누르면 커집니다.</p>
+  <div class="guided-photos"><figure>
+  <img src="photos/expansion-tank.jpg" alt="기계실에 놓인 팽창탱크와 옆 배관" loading="lazy">
+  <figcaption>
+    <b>1. 장비 전체</b>
+    <dl>
+      <div><dt>볼 곳</dt><dd>탱크가 놓인 자리와 옆 배관</dd></div>
+      <div><dt>찍을 것</dt><dd>탱크가 어디 있는지 보이는 전체 사진</dd></div>
+      <div><dt>적을 것</dt><dd>건물·층·방 이름과 장비 번호</dd></div>
+    </dl>
+    <small>신평리가아파트 보고서 PDF 17쪽</small>
+  </figcaption>
+  </figure>
+<figure>
+  <img src="photos/expansion-tank-nameplate.jpg" alt="제조사와 모델이 쓰인 팽창탱크 이름표" loading="lazy">
+  <figcaption>
+    <b>2. 장비 이름표</b>
+    <dl>
+      <div><dt>볼 곳</dt><dd>탱크에 붙은 정보표</dd></div>
+      <div><dt>찍을 것</dt><dd>글씨를 읽을 수 있는 가까운 사진</dd></div>
+      <div><dt>적을 것</dt><dd>모델명과 장비 번호를 각각 기록</dd></div>
+    </dl>
+    <small>신평리가아파트 보고서 PDF 17쪽</small>
+  </figcaption>
+  </figure>
+<figure>
+  <img src="photos/expansion-tank-support.jpg" alt="팽창탱크 밑의 받침과 바닥 고정부" loading="lazy">
+  <figcaption>
+    <b>3. 점검할 부분</b>
+    <dl>
+      <div><dt>볼 곳</dt><dd>탱크 받침과 바닥에 고정된 곳</dd></div>
+      <div><dt>찍을 것</dt><dd>어느 받침인지 알아볼 수 있는 사진</dd></div>
+      <div><dt>적을 것</dt><dd>보이는 상태와 더 확인할 내용</dd></div>
+    </dl>
+    <small>신평리가아파트 보고서 PDF 17쪽</small>
+  </figcaption>
+  </figure></div>
+  <h3>앱에서 찍는 순서</h3>
+  <ol class="plain-steps">
+    <li>오늘 작업을 열고 <strong>항목별 빠른 촬영</strong>을 누르세요.</li>
+    <li>장비 번호를 맞춰 보고, <strong>설비를 고르세요.</strong></li>
+    <li><strong>지지대 상태확인</strong>처럼 찍을 항목을 고르고 촬영을 확정하세요. 필요한 항목이 없다면 <strong>직접 항목 추가</strong>를 누르세요.</li>
+    <li><strong>기록·사진 열기</strong>에서 맞는 장비와 항목에 사진이 붙었는지 확인하세요.</li>
+  </ol>
 </section>
 
 <section class="panel beginner" id="atlas">
-<h2>다른 설비와 측정 화면도 사진으로 보기</h2>
-<p class="simple-lead">사진을 보고 먼저 확인할 내용을 찾습니다. 숫자나 색은 그때 잰 값이므로, 이번 회차에는 실제 측정값과 비교 기준을 기록합니다.</p>
-<div class="guided-photos">
-<figure><img alt="기계실의 펌프와 연결된 배관" loading="lazy" src="photos/pump.jpg"><figcaption><b>펌프 · 물을 보내는 장비</b><span>사진에서는 펌프 위치, 배관 연결, 바닥 고정부가 보이도록 기록합니다. 비슷한 펌프가 나란히 있으면 설비ID가 중요합니다.</span><small>신평리가아파트 PDF 23쪽</small></figcaption></figure>
-<figure><img alt="펌프 옆에 들고 있는 소음측정기의 표시창" loading="lazy" src="photos/sound-meter.jpg"><figcaption><b>소음측정 · 소리의 크기</b><span>측정기 화면과 단위를 보고, 펌프에서 떨어진 거리와 다른 장비가 함께 돌고 있었는지도 적습니다.</span><small>신평리가아파트 PDF 24쪽</small></figcaption></figure>
-<figure><img alt="펌프에 진동계를 대고 수치를 기록한 사진" loading="lazy" src="photos/vibration-meter.jpg"><figcaption><b>진동측정 · 흔들림</b><span>숫자와 단위에 더해 장비의 어느 곳에서 어느 방향으로 쟀는지 적습니다. 소음값과 진동값은 구분합니다.</span><small>신평리가아파트 PDF 25쪽</small></figcaption></figure>
-<figure><img alt="온도 분포를 여러 색으로 보여 주는 열화상 카메라" loading="lazy" src="photos/thermal-camera.jpg"><figcaption><b>열화상 · 표면 온도 보기</b><span>카메라가 비춘 부분과 화면의 온도·단위를 적습니다. 따뜻해 보이는 색만으로 과열이나 누수를 확정하지 않습니다.</span><small>신평리가아파트 PDF 18쪽</small></figcaption></figure>
-<figure><img alt="환기설비에서 풍속을 확인한 풍속계 화면" loading="lazy" src="photos/air-speed-meter.jpg"><figcaption><b>풍속측정 · 바람이 움직이는 빠르기</b><span>화면의 값과 단위, 잰 위치를 남깁니다. 기준에서 풍량을 요구한다면 필요한 계산 조건과 산식도 따로 확인합니다.</span><small>신평리가아파트 PDF 41쪽</small></figcaption></figure>
-<figure><img alt="옥상 냉각탑 외부 구조물과 고정 부위" loading="lazy" src="photos/cooling-tower.jpg"><figcaption><b>냉각탑 · 외부 구조물 확인</b><span>어느 면이나 연결부를 확인했는지 적습니다. 도장이 벗겨진 곳이나 녹이 보이면 전경과 가까이 찍은 사진을 짝으로 남깁니다.</span><small>당진시청사 PDF 34쪽</small></figcaption></figure>
-<figure><img alt="기계실에 설치된 공기조화기 외함" loading="lazy" src="photos/air-handling-unit.jpg"><figcaption><b>공기조화기 · 공기를 처리해 보내는 장비</b><span>외함의 상태와 설비ID를 확인합니다. 필터에 먼지가 보이면 위치와 청소 필요를 기록하고 판정은 점검 기준으로 확인합니다.</span><small>당진시청사 PDF 177쪽</small></figcaption></figure>
-</div>
+  <h2>사진으로 확인할 곳 찾기</h2>
+  <p class="simple-lead">오늘 맡은 장비나 측정 항목을 찾으세요. 실제 점검 항목은 담당자와 오늘 점검표에서 확인합니다.</p>
+  <div class="guided-photos"><figure>
+  <img src="photos/pump.jpg" alt="기계실의 펌프와 연결 배관" loading="lazy">
+  <figcaption>
+    <b>펌프 · 물을 보내는 장비</b>
+    <dl>
+      <div><dt>볼 곳</dt><dd>배관이 이어지는 곳과 바닥 받침</dd></div>
+      <div><dt>찍을 것</dt><dd>펌프 전체와 확인할 부분</dd></div>
+      <div><dt>적을 것</dt><dd>장비 번호와 물방울·물자국·녹이 보인 곳</dd></div>
+    </dl>
+    <small>신평리가아파트 보고서 PDF 23쪽</small>
+  </figcaption>
+  </figure>
+<figure>
+  <img src="photos/sound-meter.jpg" alt="펌프 옆 소음측정기의 표시창" loading="lazy">
+  <figcaption>
+    <b>소음 · 소리가 얼마나 큰지</b>
+    <dl>
+      <div><dt>볼 곳</dt><dd>담당자가 잰 곳과 측정기 화면</dd></div>
+      <div><dt>찍을 것</dt><dd>숫자와 단위가 읽히는 화면</dd></div>
+      <div><dt>적을 것</dt><dd>값·단위, 잰 위치와 거리, 주변 장비의 작동 여부</dd></div>
+    </dl>
+    <small>신평리가아파트 보고서 PDF 24쪽</small>
+  </figcaption>
+  </figure>
+<figure>
+  <img src="photos/vibration-meter.jpg" alt="펌프의 흔들림을 잰 진동계 화면" loading="lazy">
+  <figcaption>
+    <b>진동 · 얼마나 흔들리는지</b>
+    <dl>
+      <div><dt>볼 곳</dt><dd>장비에서 진동을 잰 부분</dd></div>
+      <div><dt>찍을 것</dt><dd>잰 위치와 숫자·단위가 보이는 화면</dd></div>
+      <div><dt>적을 것</dt><dd>값·단위, 잰 위치와 방향, 작동 상태</dd></div>
+    </dl>
+    <small>신평리가아파트 보고서 PDF 25쪽</small>
+  </figcaption>
+  </figure>
+<figure>
+  <img src="photos/thermal-camera.jpg" alt="표면 온도를 색과 숫자로 표시한 열화상 카메라" loading="lazy">
+  <figcaption>
+    <b>열화상 · 표면 온도를 보는 사진</b>
+    <dl>
+      <div><dt>볼 곳</dt><dd>카메라가 비춘 부분과 그곳의 온도</dd></div>
+      <div><dt>찍을 것</dt><dd>위치를 알 수 있는 사진과 온도 화면</dd></div>
+      <div><dt>적을 것</dt><dd>위치, 온도(°C), 작동 상태, 비교할 상한과 출처</dd></div>
+    </dl>
+    <small>신평리가아파트 보고서 PDF 18쪽</small>
+  </figcaption>
+  </figure>
+<figure>
+  <img src="photos/air-speed-meter.jpg" alt="환기설비에서 바람의 빠르기를 재는 풍속계" loading="lazy">
+  <figcaption>
+    <b>풍속 · 바람이 움직이는 빠르기</b>
+    <dl>
+      <div><dt>볼 곳</dt><dd>바람을 잰 곳과 측정기 화면</dd></div>
+      <div><dt>찍을 것</dt><dd>잰 위치와 숫자·단위가 보이는 화면</dd></div>
+      <div><dt>적을 것</dt><dd>위치·값·단위. 바람의 양이 필요하면 담당자가 계산 조건 확인</dd></div>
+    </dl>
+    <small>신평리가아파트 보고서 PDF 41쪽</small>
+  </figcaption>
+  </figure>
+<figure>
+  <img src="photos/cooling-tower.jpg" alt="옥상 냉각탑과 외부 고정부" loading="lazy">
+  <figcaption>
+    <b>냉각탑 · 물을 식히는 장비</b>
+    <dl>
+      <div><dt>볼 곳</dt><dd>겉면, 받침, 배관과 만나는 곳</dd></div>
+      <div><dt>찍을 것</dt><dd>전체와 녹이나 벗겨진 부분을 각각 촬영</dd></div>
+      <div><dt>적을 것</dt><dd>어느 면이나 연결부에서 보였는지</dd></div>
+    </dl>
+    <small>당진시청사 보고서 PDF 34쪽</small>
+  </figcaption>
+  </figure>
+<figure>
+  <img src="photos/air-handling-unit.jpg" alt="기계실에 놓인 공기조화기 외함" loading="lazy">
+  <figcaption>
+    <b>공기조화기 · 공기를 처리해 보내는 장비</b>
+    <dl>
+      <div><dt>볼 곳</dt><dd>장비 겉면과 담당자가 확인한 필터</dd></div>
+      <div><dt>찍을 것</dt><dd>설비 번호와 허용된 범위의 확인 부위</dd></div>
+      <div><dt>적을 것</dt><dd>먼지나 손상이 보인 부위와 청소 확인 필요 여부</dd></div>
+    </dl>
+    <small>당진시청사 보고서 PDF 177쪽</small>
+  </figcaption>
+  </figure></div>
+  <p><a href="#field">나머지 설비와 자세한 점검 항목 보기</a></p>
 </section>
 
-
 <section class="panel beginner" id="examples">
-<h2>어떤 말로 적을지 헷갈릴 때</h2>
-<p class="simple-lead">한 문장에 추측과 판정을 섞으면, 다음 사람이 무엇을 실제로 봤는지 알기 어렵습니다. 아래 문장은 모두 연습용입니다.</p>
-<div class="simple-words examples">
-<div><b>물이 보였어요</b><span>“펌프 연결부 아래에 마른 물자국이 보임. 현재 물방울은 확인되지 않음. 운전 중 재확인.” 물자국과 진행 중인 누수를 구분합니다.</span></div>
-<div><b>소리가 이상해요</b><span>“펌프가 도는 동안 금속 마찰 같은 소리가 반복됨. 측정값·비교 기준은 추가 확인.” 원인을 확정해 적기 전에 실제로 들은 소리를 남깁니다.</span></div>
-<div><b>필터가 더러워요</b><span>“공기조화기 필터 표면에 먼지 보임. 청소 또는 교체 필요 여부 확인 후 상태를 다시 확인.” 관리 권고와 확정 부적합을 구분합니다.</span></div>
-<div><b>온도가 높아 보여요</b><span>“열화상에서 모터 바깥 표면의 온도를 확인함. 적용 상한과 동일 운전 조건 확인 필요.” 실측값·단위를 확보하면 같이 적습니다.</span></div>
-</div>
-<details>
-<summary>연습: 사진만 보고 ‘적합’을 눌러도 될까요?</summary>
-<p>아직은 <strong>확인 필요</strong>로 남깁니다. 사진은 무엇을 찍었는지 보여 줍니다. 판정을 하려면 해당 항목의 적용 여부와 현장에서 확인한 근거가 더 필요합니다.</p>
-</details>
-<h3>수량 계산 연습</h3>
-<p>건물에 펌프가 <b>5대</b> 있고, 이번 대상이 <b>3대</b>라고 가정합니다. 실제로 <b>2대</b>를 점검해 <b>1대 적합</b>, <b>1대 판정보류</b>로 기록했습니다.</p>
-<div class="number-flow" aria-label="설치 5대, 대상 3대, 점검 2대, 미점검 1대">
-<div><strong>5대</strong><span>설치</span></div><div><strong>3대</strong><span>이번 대상</span></div><div><strong>2대</strong><span>실제 점검</span></div><div><strong>1대</strong><span>미점검</span></div>
-</div>
-<p>대상 3대 중 점검하지 않은 1대는 <b>미점검</b>입니다. 점검은 했지만 근거를 더 확인해야 하는 1대는 <b>판정보류</b>입니다. 펌프 한 대를 다섯 번 찍어도 점검 대수는 늘어나지 않습니다.</p>
-<details>
-<summary>연습: 점검 2대인데 판정 결과를 1대만 적었다면?</summary>
-<p>어느 설비의 결과가 빠졌는지 설비ID별 상세표를 엽니다. 실제 사유를 확인해 판정을 보완하고, 근거가 아직 부족하면 판정보류로 표시합니다.</p>
-</details>
+  <h2>이상해 보이는 곳은 이렇게 적으세요</h2>
+  <p class="simple-lead">먼저 어디에서 무엇을 봤는지 쓰세요. 무엇을 더 확인해야 하는지 다음 줄에 적으세요.</p>
+  <div class="template-card">
+    <strong>기계실에서 쓴 메모 예시</strong>
+    <dl>
+      <div><dt>장비·위치</dt><dd>PT-01, 지하 1층 기계실</dd></div>
+      <div><dt>직접 본 것</dt><dd>탱크의 바닥 받침 한쪽에 녹이 보임.</dd></div>
+      <div><dt>사진 번호</dt><dd>R-001-01</dd></div>
+      <div><dt>다음에 할 일</dt><dd>담당자가 받침의 고정 상태를 확인하기로 함.</dd></div>
+    </dl>
+  </div>
+  <h3>상황에 맞는 메모 예시</h3>
+  <div class="tip-grid">
+    <article><h3>물이 샐 때</h3><p>“펌프 연결부에서 물방울이 떨어짐.” 마른 흔적만 봤다면 “연결부 아래에 마른 물자국이 보임”이라고 적으세요.</p></article>
+    <article><h3>소리가 달라졌을 때</h3><p>“펌프를 켰을 때 긁히는 듯한 소리가 반복됨.” 잰 값이 있으면 단위와 잰 위치를 함께 적으세요.</p></article>
+    <article><h3>장비가 많이 흔들릴 때</h3><p>“펌프가 작동하는 동안 받침 쪽에 흔들림이 보임.” 담당자가 잰 값·단위·위치·방향을 붙이세요.</p></article>
+    <article><h3>필터에 먼지가 보일 때</h3><p>“필터 표면에 먼지가 보임. 청소나 교체가 필요한지 확인 요청.” 결과표에는 담당자가 확인한 판정을 적으세요.</p></article>
+    <article><h3>온도가 높아 보일 때</h3><p>“모터 겉면 온도 ___ °C, 작동 상태 ___.” 담당자와 적용 상한을 확인하고 같은 조건에서 비교하세요.</p></article>
+    <article><h3>받침에 녹이 보일 때</h3><p>“어느 받침에 녹이 보였는지” 적고 사진 번호를 붙이세요. 고정 상태는 담당자에게 확인을 요청하세요.</p></article>
+  </div>
+  <div class="callout"><strong>보고서 결과는 이렇게 나눕니다</strong><p>기준을 벗어난 사실이 확인되면 담당자가 <b>부적합</b>으로 기록합니다. 눈으로 본 주의점은 <b>관리 권고</b>로 남길 수 있습니다. 점검은 했지만 자료가 부족하면 <b>판정보류</b>로 적습니다. <a href="#findings">개선사항 표에 쓰는 방법</a></p></div>
+  <h3>장비 수 세기</h3>
+  <p>펌프가 5대 있고, 그중 3대가 이번에 볼 장비입니다. 실제로는 2대를 점검했습니다.</p>
+  <div class="number-flow" aria-label="전체 5대, 이번에 볼 대상 3대, 실제 점검 2대, 아직 못 본 장비 1대">
+    <div><strong>5대</strong><span>건물에 있는 장비</span></div><div><strong>3대</strong><span>이번에 볼 장비</span></div><div><strong>2대</strong><span>실제로 점검</span></div><div><strong>1대</strong><span>아직 못 봄</span></div>
+  </div>
+  <p class="formula">대상 3대 − 점검한 2대 = 못 본 1대</p>
+  <p>못 본 장비는 <strong>미점검</strong>입니다. 본 2대 중 확인이 더 필요한 장비는 <strong>판정보류</strong>입니다. 같은 장비를 여러 번 찍어도 장비 수는 한 대입니다.</p>
 </section>
 
 <section class="panel beginner" id="easy-handoff">
-<h2>휴대폰에서 찍고, PC에서 한글 보고서 만들기</h2>
-<div class="easy-handoff-grid">
-<article><h3>휴대폰에서 할 일</h3><ol>
-<li>새 점검 회차를 만들고 현장명·문서번호와 확인한 날짜를 적습니다.</li>
-<li><b>항목별 빠른 촬영</b>에서 설비를 고르고 필요한 항목을 눌러 찍습니다.</li>
-<li><b>기록·사진 열기</b>에서 본 사실과 실측값을 추가합니다. 사진이 맞는 설비·항목에 붙었는지 봅니다.</li>
-<li><b>작업 ZIP 내보내기</b>를 눌러 이번 회차 자료를 PC로 옮깁니다.</li>
-</ol></article>
-<article><h3>PC에서 할 일</h3><ol>
-<li>이번 회차의 작업 ZIP을 풉니다. 사진 폴더와 현장 메모가 같은 위치에 있는지 확인합니다.</li>
-<li>NAIN의 <b>폴더 · AI 초안</b>에서 푼 폴더를 선택합니다.</li>
-<li><b>회차 정보 · 날짜</b>에서 실제 점검일, 작성일, 제출일을 확인합니다.</li>
-<li>한글 초안의 표와 사진을 점검기록과 맞춰 봅니다. 검토자 확인을 받아 제출본을 저장합니다.</li>
-</ol></article>
-</div>
-<figure class="pc-guide"><img alt="NAIN PC 통합 앱의 당진시청 작업 첫 화면. 위에 GPT 보고서 작성 버튼, 왼쪽에 설비 분류, 오른쪽에 펌프 사진이 있다." loading="lazy" src="photos/nain-desktop.png"><figcaption>실제 PC 화면입니다. 왼쪽에서 설비 분류를 고르고, 가운데에서 사진을 체크하면 오른쪽에서 내용을 볼 수 있습니다. <b>선택 사진으로 참고 초안</b>은 2026년 당진시청 자료를 예시로 볼 때 사용합니다.</figcaption></figure>
-<div class="callout"><strong>GPT에게 부탁할 말</strong><p>“아래 이번 회차 메모에서 직접 본 사실과 내가 제안한 조치를 나누어 정리해 줘. 숫자·단위·날짜·판정은 바꾸지 말고, 없는 값은 확인 필요라고 표시해 줘.” 답변 속 값을 원래 메모와 대조한 뒤 보고서에 붙입니다.</p></div>
-<p class="next-detail">실무에서 확인할 수량표, 보고서 목차, 제출 점검표는 <a href="#start">자세한 업무 절차</a>로 이어집니다.</p>
+  <h2>사진과 메모로 한글 보고서 만들기</h2>
+  <div class="easy-handoff-grid">
+    <article><h3>휴대폰에서</h3><ol>
+      <li>오늘 작업을 열고 현장 이름과 실제 점검일을 확인하세요.</li>
+      <li>사진을 찍고 <strong>기록·사진 열기</strong>에서 메모와 잰 값을 적으세요.</li>
+      <li><strong>작업 ZIP 내보내기</strong>를 눌러 사진과 메모를 PC로 옮기세요.</li>
+    </ol></article>
+    <article><h3>PC에서</h3><ol>
+      <li>작업 ZIP을 풀고 사진과 기록 파일이 들어 있는지 확인하세요.</li>
+      <li>NAIN에서 <strong>폴더 · AI 초안</strong>을 열어 그 폴더를 고르세요.</li>
+      <li>점검일·작성일·제출일이 각각 맞는지 보세요. 표의 숫자와 사진을 원본과 비교하고 담당자 확인을 받으세요.</li>
+    </ol></article>
+  </div>
+  <figure class="pc-guide">
+    <img src="photos/nain-desktop.png" alt="NAIN PC 화면. 위에는 GPT 보고서 작성 버튼, 왼쪽에는 설비 목록, 오른쪽에는 사진이 있다." loading="lazy">
+    <figcaption>PC 화면에서 왼쪽은 설비 목록, 가운데는 사진 선택, 오른쪽은 사진 확인입니다. 사진을 누르면 화면을 크게 볼 수 있습니다.</figcaption>
+  </figure>
+  <details>
+    <summary>GPT에 보고서 문장 정리를 부탁하는 말</summary>
+    <p>“이 메모를 직접 본 사실과 다음에 할 일로 나눠 적어 줘. 숫자, 단위, 날짜, 판정은 그대로 두고 빠진 값은 ‘확인 필요’로 써 줘.”</p>
+    <p>답변을 현장 메모와 맞춰 보고 확인한 문장만 보고서에 넣으세요.</p>
+  </details>
+  <p class="next-detail"><a href="#release">제출하기 전에 빠진 것이 없는지 체크하세요</a></p>
 </section>
 
+<h2 class="detail-title">담당자가 확인하는 자세한 절차</h2>
 
-<h2 class="detail-title">자세한 업무 절차</h2>
 <section class="panel" id="start">
-<h2><span class="num">01</span>착수와 역할</h2>
+<h2><span class="num">01</span>시작 전에 준비할 것</h2>
 <p class="lead">접수 단계에서 현장 범위와 이번 회차를 먼저 확정합니다. 동일 발주처의 여러 동·공장도 실제 설비 목록과 문서번호를 구분합니다.</p>
 <ol class="flow">
 <li><b>착수 준비</b><span>계약 범위, 대상 현황표, 출입·일정 확인</span></li>
@@ -299,13 +502,13 @@ body{font-size:1rem;line-height:1.65;font-synthesis:none}
 </section>
 
 <section class="panel" id="scope">
-<h2><span class="num">02</span>점검 대상 확정과 수량 대조</h2>
+<h2><span class="num">02</span>볼 장비를 정하고 수량 확인하기</h2>
 <ol>
 <li><strong>설치 목록 작성</strong> — 설비ID, 분류, 동·층·위치, 명판·형식, 운전·예비 상태를 적고 현장에서 대조합니다.</li>
 <li><strong>이번 대상 표시</strong> — 현황표·적용 기준·계약 범위를 확인해 대상, 제외, 확인 필요를 구분합니다. 제외와 미점검은 사유를 남깁니다.</li>
 <li><strong>대수 집계</strong> — 같은 설비에 점검항목이 여러 개 있어도 결과표에서는 설비ID 기준으로 한 번 셉니다. 배관처럼 ‘계통/식’으로 관리하는 대상은 현황표의 단위를 따릅니다.</li>
 </ol>
-<div class="tablebox"><table aria-label="수량과 판정 상태 정의"><thead><tr><th scope="col">구분</th><th scope="col">회차 기록에서 의미</th></tr></thead><tbody>
+<div class="tablebox" role="region" tabindex="0" aria-label="수량과 판정 상태 정의"><table aria-label="수량과 판정 상태 정의"><thead><tr><th scope="col">구분</th><th scope="col">회차 기록에서 의미</th></tr></thead><tbody>
 <tr><th scope="row">설치 / 대상 / 점검</th><td>설치는 확인된 재고, 대상은 이번 회차에서 점검하기로 확정한 범위, 점검은 실제로 수행한 범위입니다.</td></tr>
 <tr><th scope="row">미점검</th><td>대상에 포함되었으나 미실시. 접근 불가, 운전 조건 미성립 등 실제 사유를 남깁니다.</td></tr>
 <tr><th scope="row">해당 없음</th><td>설비 사양이나 구성상 특정 <em>항목</em>이 적용되지 않는 상태. 사유를 남기며 설비 자체의 대상 여부와 분리합니다.</td></tr>
@@ -313,7 +516,7 @@ body{font-size:1rem;line-height:1.65;font-synthesis:none}
 </tbody></table></div>
 <div class="callout"><strong>내부 집계 식</strong><p>설치 ≥ 대상 ≥ 점검. <b>점검 = 적합 + 부적합 + 판정보류</b>를 실제 점검 설비 기준으로 대조합니다. <b>대상 − 점검 = 미점검</b>입니다.</p><p>점검 완료율은 점검÷대상, 적합률은 적합÷점검입니다. 각 식에 100을 곱하고 분모가 0이면 ‘해당 없음’으로 표시합니다. 판정보류가 있으면 건수와 분모 기준을 함께 적습니다.</p></div>
 <h3>완료본에서 발견한 집계 확인 지점</h3>
-<div class="tablebox"><table aria-label="2026년 실제 완료본 수량 비교"><thead><tr><th scope="col">원본 PDF 4쪽</th><th scope="col">설치 / 대상 / 점검</th><th scope="col">원본 판정 합계</th><th scope="col">재검토할 사항</th></tr></thead><tbody>
+<div class="tablebox" role="region" tabindex="0" aria-label="2026년 실제 완료본 수량 비교"><table aria-label="2026년 실제 완료본 수량 비교"><thead><tr><th scope="col">원본 PDF 4쪽</th><th scope="col">설치 / 대상 / 점검</th><th scope="col">원본 판정 합계</th><th scope="col">재검토할 사항</th></tr></thead><tbody>
 <tr><th scope="row">당진시청사</th><td class="measure">182 / 79 / 79</td><td>적합 48 · 부적합 30</td><td>판정 합계 78. 급수펌프·급탕탱크 등 행이 점검 5, 적합 3, 부적합 1로, 세부 판정 1건을 상세표에서 대조합니다.</td></tr>
 <tr><th scope="row">신평리가아파트</th><td class="measure">37 / 15 / 15</td><td>적합 15 · 부적합 칸 공란</td><td>점검과 적합 수가 같게 기재되어 있습니다. 제출 형식에 맞춰 공란의 의미를 원시기록에서 확인합니다.</td></tr>
 <tr><th scope="row">삼우 1공장</th><td class="measure">20 / 9 / 9</td><td>적합 8 · 부적합 칸 공란</td><td>같은 표의 적합 세부 행 합계는 9입니다. 적합 합계 8과 대조한 뒤 근거를 남깁니다.</td></tr>
@@ -324,9 +527,9 @@ body{font-size:1rem;line-height:1.65;font-synthesis:none}
 
 
 <section class="panel" id="field">
-<h2><span class="num">03</span>현장 측정과 사진</h2>
+<h2><span class="num">03</span>장비별로 볼 곳과 남길 사진</h2>
 <p>설비에 도착하면 <strong>설비ID·위치·명판</strong>부터 맞춥니다. 도면이나 대장과 실물이 다르면 현장에서 불일치 내용을 기록하고, 보고서에 들어갈 기준 식별자를 확인합니다.</p>
-<div class="tablebox"><table aria-label="대상 설비별 점검 항목 예시"><thead><tr><th scope="col">설비</th><th scope="col">점검할 항목 예시</th><th scope="col">증빙과 조건</th></tr></thead><tbody>
+<div class="tablebox" role="region" tabindex="0" aria-label="대상 설비별 점검 항목 예시"><table aria-label="대상 설비별 점검 항목 예시"><thead><tr><th scope="col">설비</th><th scope="col">점검할 항목 예시</th><th scope="col">증빙과 조건</th></tr></thead><tbody>
 <tr><th scope="row">냉동기·축열조</th><td>기내압력, 부식, 적용되는 경보·안전기능, 헤더. 축열조는 외벽 균열, 내부 상태, 지지대 고정 등을 확인합니다.</td><td>압력 표시·단위와 운전 상태를 함께 기록하고, 종류별로 적용 여부를 확인합니다.</td></tr>
 <tr><th scope="row">냉각탑</th><td>수조·볼탭, 도장·부식, 살수·송풍기, 충진물, 연결 배관·밸브 및 적용되는 수질·유량 자료를 확인합니다.</td><td>전경, 부식 부위, 밸브 위치와 작동 결과를 분리해 기록합니다.</td></tr>
 <tr><th scope="row">보일러·열교환기</th><td>보일러의 부식·연소·급수·압력, 열교환기의 부식과 효율 관련 기록을 확인합니다. 증기식 전용 항목은 사양을 대조합니다.</td><td>운전 모드와 측정 지점을 적고, 적용되는 장치와 자료를 표시합니다.</td></tr>
@@ -359,9 +562,9 @@ body{font-size:1rem;line-height:1.65;font-synthesis:none}
 </section>
 
 <section class="panel" id="findings">
-<h2><span class="num">04</span>판정과 개선사항 작성</h2>
+<h2><span class="num">04</span>결과와 개선할 점 쓰기</h2>
 <p>보고서 문장은 <strong>무엇을 확인했는지 → 어떤 비교 근거가 있는지 → 이번 판정은 무엇인지 → 누가 무엇을 재확인할지</strong> 순서로 씁니다. 원인 추정이 필요한 경우 ‘추정’임을 표시하고 확인 방법을 함께 적습니다.</p>
-<div class="tablebox"><table aria-label="판정별 작성 방법"><thead><tr><th scope="col">기록 분류</th><th scope="col">기재 조건</th><th scope="col">보고서 처리</th></tr></thead><tbody>
+<div class="tablebox" role="region" tabindex="0" aria-label="판정별 작성 방법"><table aria-label="판정별 작성 방법"><thead><tr><th scope="col">기록 분류</th><th scope="col">기재 조건</th><th scope="col">보고서 처리</th></tr></thead><tbody>
 <tr><th scope="row">확정 부적합</th><td>설비·항목이 특정되며, 적용 기준 또는 검토자의 근거와 현장 증빙이 있습니다.</td><td>결과표와 개선표를 같은 설비ID로 연결합니다. 조치 의견과 조치 후 확인 항목을 적습니다.</td></tr>
 <tr><th scope="row">육안 주의 / 관리 권고</th><td>필터 먼지, 마감 손상, 지지대 부식 등 현장에서 보였고 확정 부적합 여부는 따로 확인합니다.</td><td>관찰 및 관리 권고란에 씁니다. 사진 첨부만으로 부적합 수를 올리지 않습니다.</td></tr>
 <tr><th scope="row">판정보류</th><td>비교 기준·단위·측정 조건이 불확실하거나 증빙이 부족합니다.</td><td>확인할 자료, 담당자, 재확인 항목을 남깁니다. 임의로 적합으로 바꾸지 않습니다.</td></tr>
@@ -378,9 +581,10 @@ body{font-size:1rem;line-height:1.65;font-synthesis:none}
 </section>
 
 <section class="panel" id="dates">
-<h2><span class="num">05</span>새 회차 날짜와 문서번호 갱신</h2>
+<h2><span class="num">05</span>이번 점검의 날짜와 문서번호 확인하기</h2>
+<p><strong>점검일</strong>은 현장에 간 날, <strong>작성일</strong>은 보고서를 쓴 날, <strong>제출일</strong>은 보낸 날입니다. 날짜가 어디에 들어가는지 보고 아래 표와 맞춰 보세요.</p>
 <p>전년도 파일을 참고할 때 <strong>현장명·동·연도·문서번호·작성자·날짜</strong>를 함께 대조합니다. 이번 회차의 원시기록에서 확인된 값을 날짜 종류별로 적고, 단일 날짜와 기간을 구분합니다.</p>
-<div class="tablebox"><table aria-label="날짜 대조 위치"><thead><tr><th scope="col">위치</th><th scope="col">확인할 값</th><th scope="col">대조 근거</th></tr></thead><tbody>
+<div class="tablebox" role="region" tabindex="0" aria-label="날짜 대조 위치"><table aria-label="날짜 대조 위치"><thead><tr><th scope="col">위치</th><th scope="col">확인할 값</th><th scope="col">대조 근거</th></tr></thead><tbody>
 <tr><th scope="row">표지 · 용역 개요</th><td>예정 또는 실제 기간 중 양식이 요구하는 날짜, 문서번호, 작성·제출일</td><td>계획서, 현장일지, 회차 등록, 제출 기록</td></tr>
 <tr><th scope="row">결과보고서 · 대상 점검표</th><td>이번 실제 점검 기간, 점검자, 보고일 또는 서명일</td><td>현장일지, 방문·입회 기록, 결과 확정일</td></tr>
 <tr><th scope="row">설비별 상세표 · 사진대장</th><td>실제 설비 점검일, 필요한 경우 측정 시각</td><td>개별 점검기록, 원시 계측값, 원본 사진 기록</td></tr>
@@ -392,9 +596,9 @@ body{font-size:1rem;line-height:1.65;font-synthesis:none}
 
 
 <section class="panel" id="report">
-<h2><span class="num">06</span>보고서 작성과 자료 이관</h2>
+<h2><span class="num">06</span>보고서를 쓰고 파일 모으기</h2>
 <p>비교한 네 완료본에는 개요, 시스템 검토, 점검 결과, 유지관리 계획, 검토사항, 점검계획서의 공통 흐름이 있습니다. 표지와 결과 요약을 앞에 두고, 상세 점검에서 원시기록을 찾을 수 있도록 조립합니다.</p>
-<div class="tablebox"><table aria-label="완료 보고서의 표준 구성"><thead><tr><th scope="col">보고서 위치</th><th scope="col">들어갈 내용과 확인 기준</th></tr></thead><tbody>
+<div class="tablebox" role="region" tabindex="0" aria-label="완료 보고서의 표준 구성"><table aria-label="완료 보고서의 표준 구성"><thead><tr><th scope="col">보고서 위치</th><th scope="col">들어갈 내용과 확인 기준</th></tr></thead><tbody>
 <tr><th scope="row">표지 · 제출문 · 목차 · 결과 요약</th><td>현장·문서번호·일정·제출일, 설치·대상·점검 수량과 결과. 인쇄 후 목차의 쪽수가 맞는지 확인합니다.</td></tr>
 <tr><th scope="row">1. 개요</th><td>용역 목적·범위·현장 정보와 이번 회차에 적용한 기준 및 버전.</td></tr>
 <tr><th scope="row">2. 기계설비 시스템 검토 및 성능계획</th><td>유지관리 지침서, 설계·운전·보수 자료, 현장 차이 및 점검 순서.</td></tr>
@@ -426,28 +630,28 @@ body{font-size:1rem;line-height:1.65;font-synthesis:none}
 </section>
 
 <section class="panel" id="release">
-<div class="checkhead"><h2><span class="num">07</span>납품 전 검토표</h2><output id="count" aria-live="polite" class="ui-only">0 / 12 완료</output></div>
-<p class="lead">검토 후 체크합니다. 이 화면의 체크 상태는 작업 보조용입니다. 승인 여부와 송부 이력은 회차 기록에 남깁니다.</p>
+<div class="checkhead"><h2><span class="num">07</span>제출하기 전 마지막 확인</h2><output id="count" aria-live="polite" class="ui-only">0 / 12 완료</output></div>
+<p class="lead">한 줄씩 확인하고 체크하세요. 체크는 이 브라우저에 저장됩니다. 승인과 제출 기록은 이번 작업 폴더에 남기세요.</p>
 <progress class="progress ui-only" id="bar" value="0" max="12" aria-label="검토표 진행률"></progress>
 <div class="checklist" id="checks">
-<label><input type="checkbox"><span>현장명·동·문서번호와 발주처가 이번 회차 자료와 일치한다.</span></label>
-<label><input type="checkbox"><span>대상과 제외·미점검 사유를 현황표와 대조했다.</span></label>
-<label><input type="checkbox"><span>세부 행 합계가 설치·대상·점검·판정 합계와 일치한다.</span></label>
-<label><input type="checkbox"><span>부적합 및 판정보류가 해당 설비 상세표와 연결된다.</span></label>
-<label><input type="checkbox"><span>주요 측정값에는 단위·조건·적용 기준 출처가 있다.</span></label>
-<label><input type="checkbox"><span>전경·명판·계측 사진이 해당 설비·항목과 연결되고, 원본이 보존되어 있다.</span></label>
-<label><input type="checkbox"><span>기존 회차의 수치·판정·사진이 새 회차로 섞여 들어가지 않았다.</span></label>
-<label><input type="checkbox"><span>표지·계획·결과·별권에서 날짜 종류와 값이 대조되었다.</span></label>
-<label><input type="checkbox"><span>개선사항의 조치와 재확인 항목이 적혀 있고, 긴급 전달 이력을 확인했다.</span></label>
-<label><input type="checkbox"><span>목차·페이지 번호 및 HWP·PDF의 표와 사진 배치가 맞는다.</span></label>
-<label><input type="checkbox"><span>적용 기준·양식 버전, 내부 검토자, 승인 여부가 기록되어 있다.</span></label>
-<label><input type="checkbox"><span>최종 파일, 첨부 자료, 제출처와 송부 이력을 회차 폴더에 보존한다.</span></label>
+<label><input type="checkbox"><span>현장 이름과 동, 문서번호, 발주처가 이번 자료와 맞나요?</span></label>
+<label><input type="checkbox"><span>점검할 장비가 목록과 맞나요? 뺐거나 못 본 장비의 이유도 적었나요?</span></label>
+<label><input type="checkbox"><span>장비 줄마다 센 숫자를 더하면 전체 수량표와 같나요?</span></label>
+<label><input type="checkbox"><span>부적합이나 판정보류로 적은 장비의 상세 기록을 찾을 수 있나요?</span></label>
+<label><input type="checkbox"><span>잰 값에 단위, 잰 조건, 어떤 기준과 비교했는지가 있나요?</span></label>
+<label><input type="checkbox"><span>장비 전체, 이름표, 측정 사진이 맞는 장비와 항목에 붙었나요? 원본도 있나요?</span></label>
+<label><input type="checkbox"><span>이전 작업의 숫자·판정·사진이 섞이지 않았나요?</span></label>
+<label><input type="checkbox"><span>표지, 계획서, 결과, 별도 보고서에 각 날짜를 맞게 적었나요?</span></label>
+<label><input type="checkbox"><span>개선사항에 할 일과 다시 볼 곳을 적었나요? 급히 알린 내용도 확인했나요?</span></label>
+<label><input type="checkbox"><span>한글 파일과 PDF에서 목차 쪽수, 표, 사진이 맞나요?</span></label>
+<label><input type="checkbox"><span>쓴 기준과 양식 버전, 검토 담당자, 승인 여부를 기록했나요?</span></label>
+<label><input type="checkbox"><span>최종 파일과 첨부, 보낸 곳과 보낸 기록을 작업 폴더에 모았나요?</span></label>
 </div>
 <div class="actions ui-only"><button type="button" id="reset">체크 초기화</button><small id="check-storage">이 브라우저의 같은 HTML 파일에서 체크를 이어갈 수 있습니다.</small></div>
 </section>
 
 <section class="panel" id="sources">
-<h2><span class="num">08</span>참고한 원본과 적용 기준</h2>
+<h2><span class="num">08</span>참고한 보고서와 기준</h2>
 <p>아래 ‘PDF 쪽’은 뷰어의 1부터 세는 페이지입니다. 인쇄 쪽번호와 다를 수 있습니다.</p>
 <ol>
 <li><b>당진시청사 2026 성능점검 본보고서</b> · 465쪽. <code>2026년 당진시청 기계설비성능점검 보고서.pdf</code> 표지 1쪽, 목차 3쪽, 결과 요약 4쪽, 개선사항 5쪽 이후, 설비 상세 24·32·34·42·45·50·57·81·86·91·108·168·176~177쪽을 업무 근거로 사용했습니다.</li>
@@ -465,7 +669,7 @@ body{font-size:1rem;line-height:1.65;font-synthesis:none}
 <li><a href="https://www.molit.go.kr/USR/policyData/dtl.jsp?id=4647">국토교통부 · 기계설비 성능점검 매뉴얼 배포 페이지</a></li>
 </ul>
 </section>
-<footer>주식회사 나인 사진으로 배우는 업무용 초안 · 2026.11.26</footer>
+<footer>주식회사 나인 기계설비 성능점검 업무 매뉴얼 · 2026.11.26</footer>
 </main>
 </div>
 <dialog id="photo-dialog" aria-label="사진 크게 보기"><button type="button">닫기</button><img alt=""><p></p></dialog>
@@ -510,14 +714,14 @@ refresh();
 const exhibit=document.querySelector("#photo-dialog");
 if(typeof exhibit.showModal==="function"){
  const close=exhibit.querySelector("button"), zoom=exhibit.querySelector("img"), description=exhibit.querySelector("p");
- for(const photo of document.querySelectorAll(".cover-figure img,.guided-photos img,.pc-guide img")){
+ for(const photo of document.querySelectorAll(".cover-figure img,.guided-photos img,.pc-guide img,.evidence img")){
   const button=document.createElement("button");
   button.type="button";button.className="photo-zoom";
   button.setAttribute("aria-label",photo.alt+" 크게 보기");
   photo.replaceWith(button);button.append(photo);
   button.addEventListener("click",()=>{
    zoom.src=photo.src;zoom.alt=photo.alt;
-   description.textContent=photo.closest("figure").querySelector("figcaption").innerText;
+   description.textContent=photo.closest("figure").querySelector("figcaption").innerText.replace(/\s+/g," ").trim();
    exhibit.showModal();
   });
  }
